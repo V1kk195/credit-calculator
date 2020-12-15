@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { countLoanAmount, countMonthlyPayment } from "../utils/formulas";
+import { countLoanAmount, countMonthlyPayment, countRequiredIncome, countOverpayment } from "../utils/formulas";
 
 function App() {
     const [cost, setCost] = React.useState(null);
@@ -11,6 +11,11 @@ function App() {
     const initialCostRef = React.useRef();
     const periodRef = React.useRef();
     const interestRateRef = React.useRef();
+
+    const loanAmount = countLoanAmount(cost, initialCost);
+    const monthlyPayment = countMonthlyPayment(loanAmount, interestRate, period);
+    const requiredIncome = countRequiredIncome(monthlyPayment);
+    const overPayment = countOverpayment(monthlyPayment, period, loanAmount);
 
     const handleCostChange = () => {
         setCost(costRef.current.value);
@@ -63,19 +68,19 @@ function App() {
             <div className="results">
                 <div>
                     <span>Ежемесячный платёж</span>
-                    <p className="results__payment">{countMonthlyPayment(countLoanAmount(cost, initialCost), interestRate, period)} &#8381;</p>
+                    <p className="results__payment">{Math.round(monthlyPayment)} &#8381;</p>
                 </div>
                 <div>
                     <span>Необходимый доход</span>
-                    <p className="results__income">5 &#8381;</p>
+                    <p className="results__income">{Math.round(requiredIncome)} &#8381;</p>
                 </div>
                 <div>
                     <span>Переплата</span>
-                    <p className="results__overpayment">5 &#8381;</p>
+                    <p className="results__overpayment">{Math.round(overPayment)} &#8381;</p>
                 </div>
                 <div>
                     <span>Тело кредита</span>
-                    <p className="results__loan-amount">{countLoanAmount(cost, initialCost)} &#8381;</p>
+                    <p className="results__loan-amount">{Math.round(loanAmount)} &#8381;</p>
                 </div>
             </div>
         </div>
