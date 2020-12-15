@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { countLoanAmount, countMonthlyPayment } from "../utils/formulas";
 
 function App() {
     const [cost, setCost] = React.useState(null);
@@ -62,7 +63,7 @@ function App() {
             <div className="results">
                 <div>
                     <span>Ежемесячный платёж</span>
-                    <p className="results__payment">5 &#8381;</p>
+                    <p className="results__payment">{countMonthlyPayment(countLoanAmount(cost, initialCost), interestRate, period)} &#8381;</p>
                 </div>
                 <div>
                     <span>Необходимый доход</span>
@@ -74,7 +75,7 @@ function App() {
                 </div>
                 <div>
                     <span>Тело кредита</span>
-                    <p className="results__loan-amount">{cost - initialCost} &#8381;</p>
+                    <p className="results__loan-amount">{countLoanAmount(cost, initialCost)} &#8381;</p>
                 </div>
             </div>
         </div>
