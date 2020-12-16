@@ -15,4 +15,9 @@ const countOverpayment = (monthlyPayment, period,  loanAmount) => {
     return ( monthlyPayment * period * 12 - loanAmount );
 }
 
-export { countLoanAmount, countMonthlyPayment, countRequiredIncome, countOverpayment };
+/* exported countInitialCost */
+const countInitialCost = (cost, percent) => {
+    return (cost * percent / 100);
+}
+
+export { countLoanAmount, countMonthlyPayment, countRequiredIncome, countOverpayment, countInitialCost };
