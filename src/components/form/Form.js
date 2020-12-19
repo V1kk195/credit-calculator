@@ -4,7 +4,7 @@ import './Form.css';
 
 function Form(props) {
     const percentsArr = [10, 15, 20, 25, 30];
-    const [percentActive, setPercentActive] = React.useState(percentsArr[0]);
+    const [percentActive, setPercentActive] = React.useState(null);
 
     const handlePercentClick = (e) => {
         props.onPercentChange(e);
