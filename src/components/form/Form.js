@@ -29,7 +29,7 @@ function Form(props) {
                 <div className="form__percents">
                     { percentsArr.map(item => {
                         return <button key={item} className={`percent-button ${percentActive == item && 'percent-button_active'}`}
-                                       value={item} onClick={handlePercentClick}>{item} %</button>
+                                       value={item} onClick={handlePercentClick} data-testid={item}>{item} %</button>
                     }) }
                 </div>
             </div>
