@@ -1,0 +1,19 @@
+.results {
+    width: 51%;
+    height: 50%;
+    padding: 18px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-row-gap: 30px;
+    grid-column-gap: 35px;
+    background-color: #ebebeb;
+    border-radius: 5px;
+}
+
+.results__number {
+    font-size: 22px;
+    margin: 5px 0 0;
+    font-weight: 400;
+}
