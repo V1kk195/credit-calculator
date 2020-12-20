@@ -3,13 +3,6 @@ import NumberFormat from "react-number-format";
 import './Form.css';
 
 function Form(props) {
-    const percentsArr = [10, 15, 20, 25, 30];
-    const [percentActive, setPercentActive] = React.useState(null);
-
-    const handlePercentClick = (e) => {
-        props.onPercentChange(e);
-        setPercentActive(e.target.value);
-    }
 
     return (
         <form className="form" onSubmit={props.onSubmit} >
@@ -24,12 +17,13 @@ function Form(props) {
                 <label htmlFor="initialCost" className="form__text">Первоначальный взнос</label>
                 <NumberFormat value={props.initialCost} displayType={'input'} thousandSeparator={' '} isNumericString={true}
                               onValueChange={props.onInitCostChange} className="form__input" placeholder="2 000 000"
-                              id="initialCost" />
+                              id="initialCost" onKeyUp={props.handleInitCostKeyUp} />
                 <span className="form__symbol">&#8381;</span>
                 <div className="form__percents">
-                    { percentsArr.map(item => {
-                        return <button key={item} className={`percent-button ${percentActive == item && 'percent-button_active'}`}
-                                       value={item} onClick={handlePercentClick} data-testid={item}>{item} %</button>
+                    { props.percentsArr.map(item => {
+                        return <button key={item} type="button"
+                                       className={`percent-button ${props.percentClickedState == item && 'percent-button_active'}`}
+                                       value={item} onClick={props.onPercentChange} data-testid={item}>{item} %</button>
                     }) }
                 </div>
             </div>
