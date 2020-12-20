@@ -50,6 +50,7 @@
     background-color: #ebebeb;
     border: none;
     cursor: pointer;
+    outline: none;
 }
 
 .percent-button:active {

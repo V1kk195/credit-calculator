@@ -7,7 +7,7 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-row-gap: 30px;
-    grid-column-gap: 35px;
+    grid-column-gap: 34px;
     background-color: #ebebeb;
     border-radius: 5px;
 }

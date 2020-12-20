@@ -1,6 +1,9 @@
 # Credit Calculator
+_____
+## [GitHub Pages](https://victoria31f.github.io/credit-calculator/)
 
 Test project
+___
 
 ## Available Scripts
 
